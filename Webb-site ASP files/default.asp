@@ -1,0 +1,1 @@
+<% Response.Redirect("dbpub/default.asp") %>
