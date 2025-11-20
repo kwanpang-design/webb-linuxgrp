@@ -29,7 +29,7 @@ Call cookiechk%>
 		</div> -->
 		<div class="clear"></div>
 		<div id="volunteer">
-			<a href="/webbmail/username.asp" class="nodec"><b>Volunteer to edit the database</b></a>
+			<a href="mailto:info@linuxgrp.com?subject=Volunteer%20to%20edit%20the%20Webb-site%20database" class="nodec"><b>Volunteer to edit the database</b></a>
 		</div>
 		<label for="srchchk" id="srchbtn">search</label>
 	</div>
