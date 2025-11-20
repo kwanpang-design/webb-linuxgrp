@@ -63,12 +63,12 @@ Call cookiechk%>
 					<input type="submit" class="btnFont" name="btnG" value="search people">
 				</form>
 			</div>
-			<!-- <form class="stockbox" action="/dbpub/orgdata.asp" method="get" name="f1">
+			<form class="stockbox" action="/dbpub/orgdata.asp" method="get" name="f1">
 				<p>Stock code</p>
 				<input type="number" class="inptxt stockcode" name="code" min="1" max="99999" pattern="[0-9]*" onclick="value=''"><br>
 				<input type="submit" class="btnFont" name="Submit" value="current" onclick="f1.action='/dbpub/orgdata.asp'">
 				<input type="submit" class="btnFont" value="past" onclick="f1.action='/dbpub/code.asp'">
-			</form> -->
+			</form>
 		</div>
 	</div>
 </div>
