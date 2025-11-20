@@ -5,6 +5,7 @@ target/
 
 ### Binary files ###
 *.class
+**/.vs/
 **/obj/
 **/bin/
 **/build/
