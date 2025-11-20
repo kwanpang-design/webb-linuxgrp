@@ -5,9 +5,9 @@ target/
 
 ### Binary files ###
 *.class
-/obj/
-/bin/
-/build/
+**/obj/
+**/bin/
+**/build/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
