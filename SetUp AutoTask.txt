@@ -1,0 +1,42 @@
+Enigma Data restore and setup:
+1> Setup a super user for doing the funciton, view and SP calling.
+    1.1> Current is using [CREATE DEFINER=`su_user`@`%`]
+    
+2> Config the mysql ini file 
+   collation-server = utf8mb4_unicode_ci
+   character-set-server = utf8mb4
+
+   And adjust the buffer for the large data 
+    innodb_buffer_pool_size = 20G (set this as high as possible, up to 80% of your machine’s RAM)
+    innodb_redo_log_capacity = 2G
+    innodb_flush_log_at_trx_commit = 0
+    innodb_log_buffer_size=1M
+    innodb_thread_concurrency=17
+    innodb_autoextend_increment=64
+    innodb_buffer_pool_instances=8
+    innodb_concurrency_tickets=5000
+    innodb_open_files=300
+    innodb_file_per_table=1
+    sort_buffer_size=256K
+
+3> Run `enigmaStructure-2025-11-08- 000.sql` to create DB Structure
+
+4> Import the data by using `enigmaData-2025-11-08- 000.sql`
+
+Cmd for import 
+mysql.exe --protocol=tcp --host=127.0.0.1 --user=root --port=3306 --default-character-set=utf8 --comments --database=enigma  < "C:\\Project\\Webb-Site\\Enigma\\enigmaData-2025-11-08- 000.sql"
+mysql.exe --protocol=tcp --host=127.0.0.1 --user=root --port=3306 --default-character-set=utf8 --comments --database=enigma  < "C:\\Project\\Webb-Site\\CCASS\\ccassData-2025-11-08- 600.sql"
+
+5> Import the data by using `enigmaTriggers-2025-11-08- 000.sql`
+
+6> Create Auto Task need to insert data record for allow to new user insert/update on table records, need to confirm the table `enigma.users`, `enigma.wsroletabs` and `enigma.wsprivs` has the DSN setting user records.
+
+Window Server 2016:
+Pre Install:
+1) mysql-connector-odbc-8.4.0-winx64.ms
+2) Office 2016
+
+1> Setup IIS then copy the file to the data folder (where is the IIS Root Path)
+2> Setup DSN for WebApp & Schedule Task.
+    DSN > Frontend need for read-only
+    DSN > Auto Update need to read/write
