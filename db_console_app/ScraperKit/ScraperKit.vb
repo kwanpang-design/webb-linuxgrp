@@ -1,8 +1,9 @@
 ﻿Option Compare Text
 Option Explicit On
-Imports System.Net.Mail
-Imports System.Net
 Imports System.IO
+Imports System.Net
+Imports System.Net.Mail
+Imports System.Runtime.Remoting.Messaging
 Imports System.Text
 Imports System.Web
 
@@ -99,7 +100,7 @@ Public Module ScraperKit
     End Sub
     Sub ErrMail(subject As String, e As ErrObject, Optional detail As String = "")
         Call SendMail(subject, e.Source & " " & e.Number & " " & e.Description & vbCrLf & "Line number: " & e.Erl & vbCrLf & detail)
-        Console.WriteLine("Error email sent")
+        Console.WriteLine("Error email sent: " & subject)
     End Sub
     Function FindDate(s As String, pretext As String) As Date
         'find dates in SEHK entitlements, will be of format YYYY/MM/DD
@@ -682,9 +683,11 @@ Public Module ScraperKit
         End If
     End Function
     Sub OpenCCASS(ByRef db As ADODB.Connection)
+        'db.Open("DSN=CCASS_local")
         db.Open("DSN=CCASS")
     End Sub
     Sub OpenEnigma(ByRef db As ADODB.Connection)
+        'db.Open("DSN=enigma_local")
         db.Open("DSN=UpdateEnigmaMySQL")
     End Sub
     Function OrgIDhash(n As String, dom As Integer) As Integer
@@ -902,30 +905,49 @@ Public Module ScraperKit
         End With
     End Sub
     Public Sub SendMail(subject As String, Optional body As String = "")
-        Dim mailHost, mailPort, mailAccount, mailPW, mailName, mailTo(), m As String
-        mailHost = GetPrivate("mailHost") 'the full domain of your mailserver
-        mailPort = GetPrivate("mailPort") 'the SMTP port number for sending mail
-        mailAccount = GetPrivate("mailAccount") 'the account you use to send mail
-        mailPW = GetPrivate("mailPW") 'the password of your sending mail account
-        mailName = GetPrivate("mailName") 'the sender name
-        mailTo = Split(GetPrivate("mailTo"), ",") 'comma-separated list of recipients
-        Dim msg As New MailMessage With {
-            .From = New MailAddress(mailAccount, mailName)
-        }, smtp As New SmtpClient With {
-            .UseDefaultCredentials = False,
-            .Credentials = New Net.NetworkCredential(mailAccount, mailPW),
-            .Port = CInt(mailPort),
-            .EnableSsl = True,
-            .Host = mailHost
-        }
-        For Each m In mailTo
-            msg.To.Add(m)
-        Next
-        msg.Subject = subject
-        msg.Body = body
-        msg.IsBodyHtml = False
-        smtp.Send(msg)
-        smtp.Dispose()
+        'Dim mailHost, mailPort, mailAccount, mailPW, mailName, mailTo(), m As String
+        'mailHost = GetPrivate("mailHost") 'the full domain of your mailserver
+        'mailPort = GetPrivate("mailPort") 'the SMTP port number for sending mail
+        'mailAccount = GetPrivate("mailAccount") 'the account you use to send mail
+        'mailPW = GetPrivate("mailPW") 'the password of your sending mail account
+        'mailName = GetPrivate("mailName") 'the sender name
+        'mailTo = Split(GetPrivate("mailTo"), ",") 'comma-separated list of recipients
+        'Dim msg As New MailMessage With {
+        '    .From = New MailAddress(mailAccount, mailName)
+        '}, smtp As New SmtpClient With {
+        '    .UseDefaultCredentials = False,
+        '    .Credentials = New Net.NetworkCredential(mailAccount, mailPW),
+        '    .Port = CInt(mailPort),
+        '    .EnableSsl = True,
+        '    .Host = mailHost
+        '}
+        'For Each m In mailTo
+        '    msg.To.Add(m)
+        'Next
+        'msg.Subject = subject
+        'msg.Body = body
+        'msg.IsBodyHtml = False
+        'smtp.Send(msg)
+        'smtp.Dispose()
+
+        If body <> "" Then
+            subject = subject + ", Message:" + body
+        End If
+
+        Dim sourceName As String = "WebbSiteSource" ' Replace with your application's source name
+        Dim logName As String = "WebbSiteApp" ' Or "System", "Security", or a custom log
+        Try
+            ' Check if the event source exists, create it if not
+            If Not EventLog.SourceExists(sourceName) Then
+                EventLog.CreateEventSource(sourceName, logName)
+            End If
+
+            ' Write the entry to the event log
+            EventLog.WriteEntry(sourceName, subject, EventLogEntryType.Information, 1000)
+        Catch ex As Exception
+            ' Handle any errors that occur during logging
+            Console.WriteLine("Error writing to event log: " & ex.Message)
+        End Try
     End Sub
     Function Setsql(n As String, v() As Object) As String
         'take a CSV string of fieldnames and collection of variables/constants and convert them into a mysql string for UPDATE

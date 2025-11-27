@@ -14,6 +14,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -24,6 +25,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>Quotes.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +36,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>Quotes.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -69,8 +72,18 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+    <Reference Include="Interop.ADODB">
+      <HintPath>..\Releaselib_Live\Interop.ADODB.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="JSONkit">
+      <HintPath>..\Releaselib_Live\JSONkit.dll</HintPath>
+    </Reference>
+    <Reference Include="persons">
+      <HintPath>..\persons\bin\x64\Release\persons.dll</HintPath>
+    </Reference>
+    <Reference Include="ScraperKit">
+      <HintPath>..\Releaselib_Live\ScraperKit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -98,6 +111,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -134,18 +148,6 @@
     <ProjectReference Include="..\HKEXdata\HKEXdata.vbproj">
       <Project>{999af44f-460a-49f0-91e7-2deeb622d23d}</Project>
       <Name>HKEXdata</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JSONkit\JSONkit.vbproj">
-      <Project>{98aa6823-eaa2-4138-97ae-a9aae305fc83}</Project>
-      <Name>JSONkit</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\persons\persons.vbproj">
-      <Project>{528368fa-ded8-4844-ae48-9190bedde73c}</Project>
-      <Name>persons</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ScraperKit\ScraperKit.vbproj">
-      <Project>{6df5fba8-7981-4a16-a3f8-ac0e4250cc59}</Project>
-      <Name>ScraperKit</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -2,77 +2,80 @@
   <Configurations>
     <Platform Name="Any CPU" />
     <Platform Name="x64" />
+    <Platform Name="x86" />
   </Configurations>
-  <Project Path="../Buybacks/Buybacks.vbproj">
+  <Project Path="../Buybacks/Buybacks.vbproj" Id="2e36ef03-5220-477a-af92-2e92e3e3acf7">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../CCASS/CCASS.vbproj">
+  <Project Path="../CCASS/CCASS.vbproj" Id="b1baa505-2a43-4291-a0d3-4c6e60d44665">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../CR/CR.vbproj">
+  <Project Path="../CR/CR.vbproj" Id="b3b5dc8d-3acb-438f-b307-2745be26077c">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../GetFinancialReports/GetFinancialReports.vbproj">
+  <Project Path="../GetFinancialReports/GetFinancialReports.vbproj" Id="bf7a3a71-1550-466a-a8d2-b2f0f4ca8149">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../GetJudgments/GetJudgments.vbproj">
+  <Project Path="../GetJudgments/GetJudgments.vbproj" Id="6075c083-acf6-440a-a18c-741cf30076a3">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../HKEXdata/HKEXdata.vbproj">
+  <Project Path="../HKEXdata/HKEXdata.vbproj" Id="999af44f-460a-49f0-91e7-2deeb622d23d">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../HKflights/HKflights.vbproj">
+  <Project Path="../HKflights/HKflights.vbproj" Id="f32db6d1-ad95-4f9a-8549-8aa18c4d9320">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../HKlawSoc/HKlawSoc.vbproj">
+  <Project Path="../HKlawSoc/HKlawSoc.vbproj" Id="0ddcca64-4744-4197-a4b2-791b1fe33fb9">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../HKMA/HKMA.vbproj">
+  <Project Path="../HKMA/HKMA.vbproj" Id="ba97120d-6d97-4ec9-bda2-2660ece4491a">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../housing/housing.vbproj">
+  <Project Path="../housing/housing.vbproj" Id="370bec3c-8ad3-4fa9-84dc-7a8553053659">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../ImmD/ImmD.vbproj">
+  <Project Path="../HttpTester/HttpTester.vbproj" Id="88e094fa-8ad6-4fec-adeb-315a5c85206f" />
+  <Project Path="../ImmD/ImmD.vbproj" Id="68864075-7a2e-4169-85d5-d95a89dfb0c7">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../JSONkit/JSONkit.vbproj">
+  <Project Path="../JSONkit/JSONkit.vbproj" Id="98aa6823-eaa2-4138-97ae-a9aae305fc83">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../LandReg/LandReg.vbproj">
+  <Project Path="../LandReg/LandReg.vbproj" Id="329e9bab-48a3-479b-bb0a-e7cec4091bef">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../Listing/Listing.vbproj">
+  <Project Path="../Listing/Listing.vbproj" Id="ec7a0eaf-90c5-493a-bc04-42e48a10cba8">
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="../persons/persons.vbproj" Id="528368fa-ded8-4844-ae48-9190bedde73c">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../persons/persons.vbproj">
+  <Project Path="../Quarantine/Quarantine.vbproj" Id="56e15868-a73a-4a11-909f-52ebd46a3283">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../Quarantine/Quarantine.vbproj">
+  <Project Path="../Quotes/Quotes.vbproj" Id="af2738e3-15ee-4216-bfac-1bbecf3bc0bc">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../Quotes/Quotes.vbproj">
+  <Project Path="../ScraperKit/ScraperKit.vbproj" Id="6df5fba8-7981-4a16-a3f8-ac0e4250cc59">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../ScraperKit/ScraperKit.vbproj">
+  <Project Path="../SDI/SDI.vbproj" Id="cfc778e9-8d28-49b2-8ace-5ddfe905925b">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../SDI/SDI.vbproj">
+  <Project Path="../SFC/SFC.vbproj" Id="462276ec-d906-45be-8b8d-2391d28d6447">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../SFC/SFC.vbproj">
+  <Project Path="../Transport/Transport.vbproj" Id="01092f11-2f2b-4dd3-81b3-a8f2319c0d5e">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../Transport/Transport.vbproj">
+  <Project Path="../Treasury/Treasury.vbproj" Id="aece58c0-f582-4d84-899d-b7de504e1b44">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../Treasury/Treasury.vbproj">
+  <Project Path="../UKCH/UKCH.vbproj" Id="76866251-54b9-4eb9-b52b-637bceb14997">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
-  <Project Path="../UKCH/UKCH.vbproj">
-    <Platform Solution="*|x64" Project="x64" />
-  </Project>
-  <Project Path="Enigma.vbproj">
+  <Project Path="Enigma.vbproj" Id="444ab2eb-f0b0-4d86-8593-569f0f508a0c">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
 </Solution>

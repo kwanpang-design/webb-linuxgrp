@@ -21,6 +21,7 @@ Module Listing
             app As New Excel.Application, wb As Excel.Workbook, sht As Excel.Worksheet,
             row, col, tel As Integer,
             con As New ADODB.Connection, rs As New ADODB.Recordset
+        Console.WriteLine("Start download file")
         URL = "https://www.hkex.com.hk/-/media/HKEX-Market/Listing/Rules-and-Guidance/Other-Resources/Listed-Issuers/Contact-Persons-in-HKEX-Listing-Department-for-Listed-Companies/Excel-Protected-File/listing.xlsx"
         cd = Today
         dest = GetLog("storage") & "\listingTeams.xlsx"

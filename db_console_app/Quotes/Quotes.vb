@@ -23,7 +23,7 @@ Module Quotes
         r = GetWeb3("https://www1.hkex.com.hk/hkexwidget/data/getequityfilter?lang=eng&callback=j&qid=1&sort=5&order=0&all=1&token=" & t, cookies)
         r = Mid(r, 2)
         Console.WriteLine(r)
-        Call WriteStringFile("C:\Users\DMW\Desktop\untitled\equities.txt", r, True)
+        Call WriteStringFile("C:\WebbSite\temp\untitled\equities.txt", r, True)
     End Sub
     Sub GetDebtList()
         'testing another way to get list of current debt securities
@@ -32,7 +32,7 @@ Module Quotes
         r = GetWeb3("https://www1.hkex.com.hk/hkexwidget/data/getdebtfilter?lang=eng&callback=j&qid=1&sort=0&order=1&all=1&token=" & t, cookies)
         r = Mid(r, 2)
         Console.WriteLine(r)
-        Call WriteStringFile("C:\Users\DMW\Desktop\untitled\debt.txt", r, True)
+        Call WriteStringFile("C:\WebbSite\temp\untitled\debt.txt", r, True)
     End Sub
     Sub ForeignDivs()
         'convert any dividends which are not in the trading currency of the stock and have passed the ex-date, then recalculate adjustments

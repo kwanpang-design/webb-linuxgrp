@@ -6,6 +6,12 @@ Imports persons
 Imports System.IO 'for streamreader in MapCRBR
 
 Module CR
+    'Sub Main()
+    '    Dim o As String
+    '    o = GetWeb("https://data.cr.gov.hk/cr/api/api/v1/api_builder/json/foreign/search?query[0][key1]=Brn&query[0][key2]=equal&query[0][key3]=" & 79107740)
+    '    Console.WriteLine(o)
+    'End Sub
+
     Sub Main()
         Call GetChangesLF("L")
         Call GetChangesLF("F")
@@ -52,6 +58,7 @@ repErr:
         rs.Open("SELECT regID FROM organisations o JOIN freg f ON personID=orgID WHERE isNUll(domicile) AND regDate>'1994-11-07' AND hostdom=1 order by regDate", con)
         Do Until rs.EOF
             Call GetDomF(rs("regID").Value.ToString)
+            Call WaitNSec(1)
             rs.MoveNext()
         Loop
         rs.Close()
@@ -453,7 +460,10 @@ RepErr:
                     End If
                     con.Execute("INSERT INTO persons() VALUES ()")
                     p = LastID(con)
-                    con.Execute("INSERT INTO organisations (domicile,personID,Name1,cName,incID,orgType,incDate,incUpd) " & Valsql({1, p, name, cName, incID, orgType, incDate, Now}))
+
+                    Dim Sql As String
+                    Sql = "INSERT INTO organisations (domicile,personID,Name1,cName,incID,orgType,incDate,incUpd) " & Valsql({1, p, name, cName, incID, orgType, incDate, Now})
+                    con.Execute(Sql)
                     Console.WriteLine("Added " & incID & " " & incDate & " " & name)
                 End If
             Else
