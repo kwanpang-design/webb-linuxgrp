@@ -7,7 +7,7 @@
 <%End If
 Call cookiechk%>
 <!--#include virtual="templates/cookiechk.asp"-->
-<div id="banner" style="background-color:maroon">
+<div id="banner" style="background-color:#4f4f4f">
 	<div class="box1">
 		<a href="/dbpub/" class="nodec">
 		<span style="font-size:1.6em;margin:0"><b>Webb-site Database <a href="https://linuxgrp.com/">- Powered By Linux Group</a></b></span><br>
@@ -72,7 +72,7 @@ Call cookiechk%>
 		</div>
 	</div>
 </div>
-<div id="menubar" style="background-color:maroon;">
+<div id="menubar" style="background-color:#4f4f4f;">
 	<div class="hnav">
 		<input type="checkbox" id="menuchk" style="display:none">
 		<ul>

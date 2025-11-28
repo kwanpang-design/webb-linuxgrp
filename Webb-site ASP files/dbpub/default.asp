@@ -15,7 +15,7 @@ Kong and beyond, drawing together publicly available data. Please attribute any 
 database to <em>Webb-site.com</em> in your research or publication. To search by stock code or person-name, use the boxes at the top of 
 any page on this site.</p>
 <p>Note: as Webb-site prepares for shutdown, our entire database is available for download in our
-<a href="../articles/repository.asp">repository</a>, so please don't use bots to scrape our site - it overloads the 
+<a href="https://webbhk.substack.com/" target="_blank">repository</a>, so please don't use bots to scrape our site - it overloads the 
 server and spoils it for everyone else.</p>
 <h3>Contents</h3>
 <ul>
